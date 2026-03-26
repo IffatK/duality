@@ -210,6 +210,51 @@ select:focus{border-color:var(--indigo)}
 /* Animations */
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .anim{animation:up .5s ease both}
+
+/* Print / PDF button */
+.btn-print{
+  background:linear-gradient(135deg,#14b8a6,#0d9488);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(20,184,166,.35);
+  display:flex;align-items:center;gap:8px
+}
+.btn-print:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(20,184,166,.5)}
+.btn-print svg{width:16px;height:16px;flex-shrink:0}
+
+/* Print styles */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body{background:#fff!important;color:#111!important}
+  body::before,.glow-a,.glow-b{display:none!important}
+  .wrap{padding:0!important;max-width:100%!important}
+  header{margin-bottom:24px!important}
+  h1{font-size:1.8rem!important;background:none!important;
+     -webkit-text-fill-color:#1e1e3f!important;color:#1e1e3f!important}
+  .pill{display:none}
+  .card{background:#f8f9fb!important;border:1px solid #d1d5db!important;
+        border-radius:10px!important;margin-bottom:16px!important;
+        page-break-inside:avoid}
+  .card-hd{color:#4f46e5!important}
+  #results{display:block!important}
+  /* hide input card and print button on print */
+  .card:first-of-type,.btn-print-wrap{display:none!important}
+  .step-body{display:block!important}
+  .step-hd .step-arrow{display:none}
+  .ans-val{color:#4f46e5!important;font-size:1.8rem!important}
+  .primal .ans-val{color:#4f46e5!important}
+  .dual   .ans-val{color:#0d9488!important}
+  .chip{border:1px solid #d1d5db!important;background:#f1f5f9!important;color:#334155!important}
+  .chip b{color:#1e293b!important}
+  .d-banner.ok{background:#f0fdf4!important;border-color:#86efac!important;color:#166534!important}
+  .d-banner.ng{background:#fef2f2!important;border-color:#fca5a5!important;color:#991b1b!important}
+  .step{background:#f8f9fb!important;border:1px solid #e2e8f0!important}
+  .step-body{color:#374151!important;border-top:1px solid #e2e8f0!important}
+  .cs-tbl td,.cs-tbl th{color:#374151!important}
+  .ok-cell{color:#16a34a!important}.ng-cell{color:#dc2626!important}
+  .graph-img{max-width:80%!important;display:block;margin:0 auto}
+  .formula-box{background:#f1f5f9!important;border-left:3px solid #4f46e5!important;color:#475569!important}
+  .formula-box b{color:#1e293b!important}
+}
 </style>
 </head>
 <body>
@@ -290,6 +335,18 @@ select:focus{border-color:var(--indigo)}
 
 <!-- Results -->
 <div id="results">
+
+  <!-- Print / PDF button row -->
+  <div class="btn-print-wrap" style="display:flex;justify-content:flex-end;margin-bottom:14px">
+    <button class="btn btn-print" onclick="printSolution()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16
+          a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      Download PDF / Print
+    </button>
+  </div>
 
   <!-- Answer cards -->
   <div class="card anim">
@@ -572,6 +629,12 @@ function render(d, n, m) {
 
 function toggleStep(hd) {
   hd.parentElement.classList.toggle("open");
+}
+
+function printSolution() {
+  // Expand all steps so they print fully
+  document.querySelectorAll(".step").forEach(s => s.classList.add("open"));
+  window.print();
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────
