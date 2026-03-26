@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify, Response
 from scipy.optimize import linprog
 import numpy as np
-import pandas as pd
-import math, io, base64, os
+import math, io, base64
 
 app = Flask(__name__)
 
@@ -1156,7 +1155,5 @@ def feasible_vertices(A, b, x_max, y_max, con_types):
                 pass
     return pts
 
-
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True, port=5050)
