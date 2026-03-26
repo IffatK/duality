@@ -1,6 +1,5 @@
 flask
-scipy
 numpy
+scipy
 pandas
 matplotlib
-os
