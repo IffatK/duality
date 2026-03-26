@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, Response
 from scipy.optimize import linprog
 import numpy as np
 import math, io, base64
-
+import os
 app = Flask(__name__)
 
 def read_html():
@@ -1155,5 +1155,8 @@ def feasible_vertices(A, b, x_max, y_max, con_types):
                 pass
     return pts
 
+
+
 if __name__ == "__main__":
-    app.run(debug=True, port=5050)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
