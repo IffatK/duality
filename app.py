@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, Response
 from scipy.optimize import linprog
 import numpy as np
+import panda as pd
 import math, io, base64
 import os
 app = Flask(__name__)
