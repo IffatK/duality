@@ -440,5 +440,5 @@ def feasible_vertices(A, b, x_max, y_max, con_types):
     return pts
 
 
-if __name__ == "__main__":
-    app.run(debug=True, port=5050)
+# if __name__ == "__main__":
+#     app.run(debug=True, port=5050)
