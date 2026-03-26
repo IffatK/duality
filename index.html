@@ -28,7 +28,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden}
 
-/* Grid background */
 body::before{
   content:'';position:fixed;inset:0;
   background-image:
@@ -39,18 +38,14 @@ body::before{
 }
 .glow-a{position:fixed;width:700px;height:700px;border-radius:50%;
   background:radial-gradient(circle,rgba(99,102,241,.1) 0%,transparent 65%);
-  top:-300px;left:-200px;pointer-events:none;z-index:0;
-  animation:ga 9s ease-in-out infinite alternate}
+  top:-300px;left:-200px;pointer-events:none;z-index:0;animation:ga 9s ease-in-out infinite alternate}
 .glow-b{position:fixed;width:500px;height:500px;border-radius:50%;
   background:radial-gradient(circle,rgba(20,184,166,.08) 0%,transparent 65%);
-  bottom:-200px;right:-100px;pointer-events:none;z-index:0;
-  animation:gb 11s ease-in-out infinite alternate}
+  bottom:-200px;right:-100px;pointer-events:none;z-index:0;animation:gb 11s ease-in-out infinite alternate}
 @keyframes ga{to{transform:translate(80px,60px)}}
 @keyframes gb{to{transform:translate(-50px,-70px)}}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:40px 20px 100px}
 
-.wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:40px 20px 100px}
-
-/* Header */
 header{text-align:center;margin-bottom:52px;animation:up .7s ease both}
 .pill{display:inline-block;background:linear-gradient(135deg,rgba(99,102,241,.18),rgba(20,184,166,.12));
   border:1px solid var(--border2);border-radius:100px;padding:4px 18px;
@@ -62,15 +57,18 @@ h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;
   line-height:1.1;margin-bottom:12px}
 .sub{color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.05em}
 
-/* Card */
-.card{background:var(--s1);border:1px solid var(--border);border-radius:18px;
-  padding:28px;margin-bottom:22px}
+.card{background:var(--s1);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:22px}
 .card-hd{font-size:10px;font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase;
   color:var(--indigo);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .card-hd::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;
   background:var(--indigo);box-shadow:0 0 8px var(--indigo)}
+.card-hd.amber-hd{color:var(--amber)}
+.card-hd.amber-hd::before{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.card-hd.red-hd{color:var(--red)}
+.card-hd.red-hd::before{background:var(--red);box-shadow:0 0 8px var(--red)}
+.card-hd.green-hd{color:var(--green)}
+.card-hd.green-hd::before{background:var(--green);box-shadow:0 0 8px var(--green)}
 
-/* Objective type toggle */
 .toggle-row{display:flex;gap:0;margin-bottom:24px;border:1px solid var(--border2);
   border-radius:10px;overflow:hidden;width:fit-content}
 .toggle-btn{padding:9px 28px;font-family:var(--sans);font-size:13px;font-weight:600;
@@ -78,7 +76,6 @@ h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;
 .toggle-btn.active{background:var(--indigo);color:#fff;box-shadow:inset 0 0 20px rgba(0,0,0,.2)}
 .toggle-btn:hover:not(.active){color:var(--text)}
 
-/* Controls row */
 .ctrl-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
 .ctrl-row label{font-family:var(--mono);font-size:12px;color:var(--muted)}
 select{background:var(--s2);border:1px solid var(--border2);color:var(--text);
@@ -86,39 +83,24 @@ select{background:var(--s2);border:1px solid var(--border2);color:var(--text);
   outline:none;cursor:pointer;transition:border-color .2s}
 select:focus{border-color:var(--indigo)}
 
-/* Constraint-type select (inline in matrix row) */
-.ct-select{
-  background:var(--s3);
-  border:1px solid var(--border2);
-  color:var(--amber);
-  border-radius:7px;
-  padding:6px 8px;
-  font-family:var(--mono);
-  font-size:13px;
-  font-weight:600;
-  outline:none;
-  cursor:pointer;
-  transition:border-color .2s,box-shadow .2s;
-  min-width:56px;
-  text-align:center;
-}
+.ct-select{background:var(--s3);border:1px solid var(--border2);color:var(--amber);
+  border-radius:7px;padding:6px 8px;font-family:var(--mono);font-size:13px;font-weight:600;
+  outline:none;cursor:pointer;transition:border-color .2s,box-shadow .2s;min-width:56px;text-align:center}
 .ct-select:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(245,158,11,.15)}
 
-/* Formulation box */
 .formula-box{background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--indigo);
   border-radius:10px;padding:14px 18px;font-family:var(--mono);font-size:12.5px;
   color:var(--muted);line-height:1.9;margin-bottom:22px}
 .formula-box b{color:var(--text)}
 .formula-box em{color:var(--indigo);font-style:italic;font-size:14px;font-family:Georgia,serif}
 
-/* Matrix */
 .section-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--muted);margin-bottom:10px}
 .section-lbl span{color:var(--teal);font-style:italic;font-family:Georgia,serif;
   font-size:13px;text-transform:none;letter-spacing:0}
-.mat-row{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.mat-row{display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
 .row-lbl{font-family:var(--mono);font-size:10px;color:var(--muted);min-width:26px;text-align:right}
-.cell{width:72px;background:var(--s2);border:1px solid var(--border2);color:var(--text);
+.cell{width:68px;background:var(--s2);border:1px solid var(--border2);color:var(--text);
   border-radius:8px;padding:8px 10px;font-family:var(--mono);font-size:13px;
   text-align:center;outline:none;transition:border-color .2s,box-shadow .2s;
   -moz-appearance:textfield}
@@ -129,7 +111,6 @@ select:focus{border-color:var(--indigo)}
 .cell-b{background:rgba(20,184,166,.08);border-color:rgba(20,184,166,.3)!important}
 .cell-b:focus{border-color:var(--teal)!important;box-shadow:0 0 0 3px rgba(20,184,166,.15)!important}
 
-/* Buttons */
 .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
 .btn{padding:11px 26px;border-radius:10px;border:none;font-family:var(--sans);
   font-weight:600;font-size:14px;cursor:pointer;transition:all .2s;letter-spacing:.01em}
@@ -140,22 +121,17 @@ select:focus{border-color:var(--indigo)}
 .btn-outline{background:var(--s2);color:var(--muted);border:1px solid var(--border2)}
 .btn-outline:hover{color:var(--text);border-color:var(--muted)}
 
-/* Error */
 .err-box{background:rgba(239,68,68,.09);border:1px solid rgba(239,68,68,.3);
   border-radius:10px;padding:14px;color:var(--red);font-family:var(--mono);
   font-size:13px;margin-top:14px}
 
-/* Spinner */
 .spin{display:inline-block;width:14px;height:14px;
   border:2px solid rgba(255,255,255,.3);border-top-color:#fff;
-  border-radius:50%;animation:sp .5s linear infinite;
-  vertical-align:middle;margin-right:8px}
+  border-radius:50%;animation:sp .5s linear infinite;vertical-align:middle;margin-right:8px}
 @keyframes sp{to{transform:rotate(360deg)}}
 
-/* Results hidden by default */
 #results{display:none}
 
-/* Answer bar */
 .answer-bar{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
 @media(max-width:580px){.answer-bar{grid-template-columns:1fr}}
 .ans-card{background:var(--s2);border:1px solid var(--border2);border-radius:14px;padding:20px}
@@ -170,14 +146,20 @@ select:focus{border-color:var(--indigo)}
   padding:4px 10px;font-family:var(--mono);font-size:12px;color:var(--muted)}
 .chip b{color:var(--text)}
 
-/* Duality banner */
+/* Big-M result card */
+.bigm-card{background:var(--s2);border:1px solid rgba(245,158,11,.3);
+  border-top:3px solid var(--amber);border-radius:14px;padding:20px;margin-bottom:20px}
+.bigm-label{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:10px}
+.bigm-val{font-size:2rem;font-weight:800;color:var(--amber);margin-bottom:8px}
+
 .d-banner{border-radius:12px;padding:14px 18px;display:flex;align-items:center;
   gap:12px;font-family:var(--mono);font-size:13px;margin-bottom:18px}
 .d-banner.ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3);color:var(--green)}
 .d-banner.ng{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);color:var(--red)}
+.d-banner.warn{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);color:var(--amber)}
 .banner-icon{font-size:20px}
 
-/* Steps accordion */
 .steps-wrap{display:flex;flex-direction:column;gap:10px}
 .step{background:var(--s2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .step-hd{display:flex;justify-content:space-between;align-items:center;
@@ -190,7 +172,21 @@ select:focus{border-color:var(--indigo)}
   font-size:12.5px;line-height:1.85;color:#94a3b8;border-top:1px solid var(--border)}
 .step.open .step-body{display:block}
 
-/* CS table */
+/* Big-M step highlight */
+.step.bigm-step{border-color:rgba(245,158,11,.3)}
+.step.bigm-step .step-hd{background:rgba(245,158,11,.04)}
+.step.bigm-step .step-title{color:var(--amber)}
+
+/* Simplex step highlight */
+.step.simplex-step{border-color:rgba(99,102,241,.4)}
+.step.simplex-step .step-hd{background:rgba(99,102,241,.06)}
+.step.simplex-step .step-title{color:#818cf8}
+
+/* Sensitivity step highlight */
+.step.sens-step{border-color:rgba(20,184,166,.3)}
+.step.sens-step .step-hd{background:rgba(20,184,166,.04)}
+.step.sens-step .step-title{color:var(--teal)}
+
 .cs-tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px}
 .cs-tbl th{text-align:left;padding:8px 12px;color:var(--muted);font-weight:400;
   border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
@@ -198,51 +194,43 @@ select:focus{border-color:var(--indigo)}
 .cs-tbl tr:last-child td{border-bottom:none}
 .ok-cell{color:var(--green)}.ng-cell{color:var(--red)}
 
-/* Graph */
 #graphSection{display:none}
+#bigmGraphSection{display:none}
 .graph-img{width:100%;border-radius:12px;border:1px solid var(--border)}
 
-/* Hint badge */
 .hint{display:inline-block;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);
   color:var(--amber);border-radius:6px;padding:2px 9px;font-family:var(--mono);font-size:10px;
   margin-left:8px;vertical-align:middle}
 
-/* Animations */
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .anim{animation:up .5s ease both}
 
-/* Print / PDF button */
-.btn-print{
-  background:linear-gradient(135deg,#14b8a6,#0d9488);
-  color:#fff;
-  box-shadow:0 4px 18px rgba(20,184,166,.35);
-  display:flex;align-items:center;gap:8px
-}
+.btn-print{background:linear-gradient(135deg,#14b8a6,#0d9488);color:#fff;
+  box-shadow:0 4px 18px rgba(20,184,166,.35);display:flex;align-items:center;gap:8px}
 .btn-print:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(20,184,166,.5)}
 .btn-print svg{width:16px;height:16px;flex-shrink:0}
 
-/* Print styles */
+/* Infeasible banner */
+.infeasible-note{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);
+  border-radius:10px;padding:12px 16px;font-family:var(--mono);font-size:12px;
+  color:var(--amber);margin-bottom:16px}
+
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   body{background:#fff!important;color:#111!important}
   body::before,.glow-a,.glow-b{display:none!important}
   .wrap{padding:0!important;max-width:100%!important}
   header{margin-bottom:24px!important}
-  h1{font-size:1.8rem!important;background:none!important;
-     -webkit-text-fill-color:#1e1e3f!important;color:#1e1e3f!important}
+  h1{font-size:1.8rem!important;background:none!important;-webkit-text-fill-color:#1e1e3f!important;color:#1e1e3f!important}
   .pill{display:none}
-  .card{background:#f8f9fb!important;border:1px solid #d1d5db!important;
-        border-radius:10px!important;margin-bottom:16px!important;
-        page-break-inside:avoid}
+  .card{background:#f8f9fb!important;border:1px solid #d1d5db!important;border-radius:10px!important;margin-bottom:16px!important;page-break-inside:avoid}
   .card-hd{color:#4f46e5!important}
   #results{display:block!important}
-  /* hide input card and print button on print */
   .card:first-of-type,.btn-print-wrap{display:none!important}
   .step-body{display:block!important}
   .step-hd .step-arrow{display:none}
   .ans-val{color:#4f46e5!important;font-size:1.8rem!important}
-  .primal .ans-val{color:#4f46e5!important}
-  .dual   .ans-val{color:#0d9488!important}
+  .primal .ans-val{color:#4f46e5!important}.dual .ans-val{color:#0d9488!important}
   .chip{border:1px solid #d1d5db!important;background:#f1f5f9!important;color:#334155!important}
   .chip b{color:#1e293b!important}
   .d-banner.ok{background:#f0fdf4!important;border-color:#86efac!important;color:#166534!important}
@@ -265,14 +253,13 @@ select:focus{border-color:var(--indigo)}
 <header>
   <div class="pill">Linear Programming</div>
   <h1>LP Duality Calculator</h1>
-  <!-- <p class="sub">Maximisation &amp; Minimisation &middot; Mixed Constraints (&le; / = / &ge;) &middot; Negative Values &middot; Graphical Method &middot; Step-by-step Proof</p> -->
+  <p class="sub">Graphical Method &middot; Big-M &middot; Sensitivity Analysis &middot; Dual &middot; Negative Values &middot; 2–5 Constraints</p>
 </header>
 
 <!-- Input card -->
 <div class="card anim">
   <div class="card-hd">Problem Setup</div>
 
-  <!-- Objective toggle -->
   <div style="margin-bottom:16px">
     <div class="section-lbl" style="margin-bottom:8px">Objective type</div>
     <div class="toggle-row">
@@ -281,14 +268,12 @@ select:focus{border-color:var(--indigo)}
     </div>
   </div>
 
-  <!-- Problem formulation display -->
   <div class="formula-box" id="formulaBox">
     <b>Maximize Z = c<sup>T</sup>x</b><br>
     Subject to: &nbsp;<em>A</em>x &nbsp; <span id="fmlSign">&#x2264;</span> &nbsp;<em>b</em>
     &nbsp; (each row may use &le;, =, or &ge;), &nbsp; x &#x2265; 0
   </div>
 
-  <!-- Size selectors -->
   <div class="ctrl-row">
     <label>Variables (n):
       <select id="nVars" onchange="buildInputs()">
@@ -308,7 +293,6 @@ select:focus{border-color:var(--indigo)}
     </label>
   </div>
 
-  <!-- Objective vector -->
   <div style="margin-bottom:22px">
     <div class="section-lbl">Objective coefficients &mdash; <span>c</span> vector
       <span class="hint">negative values ok</span>
@@ -316,7 +300,6 @@ select:focus{border-color:var(--indigo)}
     <div id="objRow" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"></div>
   </div>
 
-  <!-- Constraint matrix -->
   <div style="margin-bottom:22px">
     <div class="section-lbl">
       Constraint matrix &mdash; <span>A</span> &nbsp;&bull;&nbsp; sign &nbsp;&bull;&nbsp; RHS <span>b</span>
@@ -328,6 +311,7 @@ select:focus{border-color:var(--indigo)}
   <div class="btn-row">
     <button class="btn btn-solve" onclick="solve()" id="solveBtn">Solve LP</button>
     <button class="btn btn-outline" onclick="loadEx()">Load Example</button>
+    <button class="btn btn-outline" onclick="loadEx3()">3-Constraint Example</button>
     <button class="btn btn-outline" onclick="clearAll()">Clear</button>
   </div>
   <div id="errBox"></div>
@@ -336,7 +320,6 @@ select:focus{border-color:var(--indigo)}
 <!-- Results -->
 <div id="results">
 
-  <!-- Print / PDF button row -->
   <div class="btn-print-wrap" style="display:flex;justify-content:flex-end;margin-bottom:14px">
     <button class="btn btn-print" onclick="printSolution()">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -346,6 +329,11 @@ select:focus{border-color:var(--indigo)}
       </svg>
       Download PDF / Print
     </button>
+  </div>
+
+  <!-- Infeasibility warning -->
+  <div id="infeasibleNote" class="infeasible-note" style="display:none">
+    &#9888; Primal LP is <b>infeasible or unbounded</b>. Big-M method applied below to diagnose and recover a solution.
   </div>
 
   <!-- Answer cards -->
@@ -364,6 +352,17 @@ select:focus{border-color:var(--indigo)}
         <div class="chips" id="dualChips"></div>
       </div>
     </div>
+
+    <!-- Big-M result (shown only when infeasible) -->
+    <div id="bigmResult" style="display:none">
+      <div style="height:1px;background:var(--border);margin:16px 0"></div>
+      <div class="bigm-card">
+        <div class="bigm-label">&#9650; Big-M Method Result</div>
+        <div class="bigm-val" id="bigmVal">&mdash;</div>
+        <div class="chips" id="bigmChips"></div>
+        <div id="bigmStatus" style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Mathematical steps -->
@@ -373,7 +372,7 @@ select:focus{border-color:var(--indigo)}
   </div>
 
   <!-- Complementary slackness table -->
-  <div class="card anim">
+  <div class="card anim" id="csSection">
     <div class="card-hd">Complementary Slackness Conditions</div>
     <table class="cs-tbl">
       <thead>
@@ -389,14 +388,22 @@ select:focus{border-color:var(--indigo)}
     </table>
   </div>
 
-  <!-- Graph (2-var only) -->
+  <!-- Graph (2-variable, 2–5 constraints) -->
   <div class="card anim" id="graphSection">
-    <div class="card-hd">Graphical Representation</div>
-    <p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:14px">
-      Available for 2-variable problems only. Yellow star = optimal point.
-      Shaded area = feasible region. Dashed line = objective function iso-line at optimum.
+    <div class="card-hd green-hd">Graphical Representation</div>
+    <p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:14px" id="graphNote">
+      2-variable problem. Yellow star = optimal point. Shaded = feasible region. Dashed = objective iso-line.
     </p>
     <img id="graphImg" class="graph-img" alt="LP Graph"/>
+  </div>
+
+  <!-- Big-M Graph (shown when infeasible + 2 vars) -->
+  <div class="card anim" id="bigmGraphSection">
+    <div class="card-hd amber-hd">Big-M Recovery — Constraint Lines</div>
+    <p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:14px">
+      Constraint lines plotted for Big-M recovery solution. Red star = Big-M optimal point.
+    </p>
+    <img id="bigmGraphImg" class="graph-img" alt="Big-M Graph"/>
   </div>
 
 </div><!-- /results -->
@@ -405,36 +412,28 @@ select:focus{border-color:var(--indigo)}
 <script>
 let objType = "max";
 
-// ── Constraint type label helpers ─────────────────────────────────────────
-function ctLabel(ct) {
-  return ct === "le" ? "≤" : ct === "ge" ? "≥" : "=";
-}
-function ctFromValue(v) { return v; } // value attr matches "le"/"ge"/"eq"
+function ctLabel(ct){ return ct==="le"?"≤":ct==="ge"?"≥":"="; }
 
-// ── Objective / formula display ───────────────────────────────────────────
-function setObj(t) {
+function setObj(t){
   objType = t;
   document.getElementById("btnMax").classList.toggle("active", t==="max");
   document.getElementById("btnMin").classList.toggle("active", t==="min");
-  const sense = t==="max" ? "Maximize" : "Minimize";
+  const sense = t==="max"?"Maximize":"Minimize";
   document.getElementById("formulaBox").innerHTML =
     `<b>${sense} Z = c<sup>T</sup>x</b><br>`+
     `Subject to: &nbsp;<em>A</em>x &nbsp; (each row: &le; / = / &ge;) &nbsp; <em>b</em>, &nbsp; x &ge; 0`;
-  // update obj row label
   const lbl = document.querySelector("#objRow span");
-  if (lbl) lbl.textContent = t==="max" ? "max" : "min";
+  if(lbl) lbl.textContent = t==="max"?"max":"min";
 }
 
-// ── Build input grid ──────────────────────────────────────────────────────
-function buildInputs() {
+function buildInputs(){
   const n = +document.getElementById("nVars").value;
   const m = +document.getElementById("mCons").value;
 
-  // Objective row
   const or = document.getElementById("objRow");
   or.innerHTML = `<span style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:4px">${objType}</span>`;
-  for (let j = 0; j < n; j++) {
-    if (j > 0) or.insertAdjacentHTML("beforeend",
+  for(let j=0;j<n;j++){
+    if(j>0) or.insertAdjacentHTML("beforeend",
       `<span style="color:var(--muted);font-family:var(--mono);padding:0 2px">+</span>`);
     or.insertAdjacentHTML("beforeend",
       `<input class="cell cell-c" id="c_${j}" type="number" step="any" placeholder="c${j+1}">`);
@@ -442,25 +441,20 @@ function buildInputs() {
       `<span style="font-family:var(--mono);font-size:11px;color:var(--muted)">x<sub>${j+1}</sub></span>`);
   }
 
-  // Matrix
   const mg = document.getElementById("matGrid");
   mg.innerHTML = "";
-
-  // Header row
   let hdr = `<div class="mat-row"><div class="row-lbl"></div>`;
-  for (let j = 0; j < n; j++)
-    hdr += `<div style="width:72px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--muted)">x<sub>${j+1}</sub></div>`;
+  for(let j=0;j<n;j++)
+    hdr += `<div style="width:68px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--muted)">x<sub>${j+1}</sub></div>`;
   hdr += `<div style="width:60px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--amber)">sign</div>`;
-  hdr += `<div style="width:72px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--teal)">b</div></div>`;
-  mg.insertAdjacentHTML("beforeend", hdr);
+  hdr += `<div style="width:68px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--teal)">b</div></div>`;
+  mg.insertAdjacentHTML("beforeend",hdr);
 
-  // Constraint rows
-  const defaultCt = objType === "max" ? "le" : "ge";
-  for (let i = 0; i < m; i++) {
+  const defaultCt = objType==="max"?"le":"ge";
+  for(let i=0;i<m;i++){
     let row = `<div class="mat-row"><div class="row-lbl">R${i+1}</div>`;
-    for (let j = 0; j < n; j++)
+    for(let j=0;j<n;j++)
       row += `<input class="cell" id="a_${i}_${j}" type="number" step="any" placeholder="0">`;
-    // Constraint-type dropdown
     row += `<select class="ct-select" id="ct_${i}">
       <option value="le" ${defaultCt==="le"?"selected":""}>≤</option>
       <option value="eq">= </option>
@@ -468,124 +462,167 @@ function buildInputs() {
     </select>`;
     row += `<input class="cell cell-b" id="b_${i}" type="number" step="any" placeholder="b${i+1}">`;
     row += `</div>`;
-    mg.insertAdjacentHTML("beforeend", row);
+    mg.insertAdjacentHTML("beforeend",row);
   }
 }
 
-// ── Examples ──────────────────────────────────────────────────────────────
+// ── Examples ──────────────────────────────────────────────────────────────────
 const EXAMPLES = {
-  max: { n:2, m:2, c:[5,4],  A:[[6,4],[1,2]], b:[24,6],  ct:["le","le"] },
-  min: { n:2, m:2, c:[2,3],  A:[[1,2],[2,1]], b:[4,6],   ct:["ge","ge"] }
+  max: { n:2, m:2, c:[5,4],  A:[[6,4],[1,2]],          b:[24,6],     ct:["le","le"] },
+  min: { n:2, m:3, c:[2,3],  A:[[1,0],[0,1],[1,1]],     b:[4,6,8],    ct:["ge","ge","ge"] }
+};
+const EXAMPLE3 = {
+  // 3-constraint MAX example with mixed types
+  n:2, m:3,
+  c:[3,5],
+  A:[[1,0],[0,2],[3,2]],
+  b:[4,12,18],
+  ct:["le","le","le"],
+  type:"max"
+};
+const EXAMPLE3MIN = {
+  // 3-constraint MIN example with >= constraints (surplus + artificial)
+  n:2, m:3,
+  c:[2,5],
+  A:[[1,2],[3,2],[1,1]],
+  b:[4,6,3],
+  ct:["ge","ge","ge"],
+  type:"min"
 };
 
-function loadEx() {
+function loadEx(){
   const ex = EXAMPLES[objType];
   document.getElementById("nVars").value = ex.n;
   document.getElementById("mCons").value = ex.m;
   buildInputs();
   ex.c.forEach((v,j) => { document.getElementById(`c_${j}`).value = v; });
   ex.A.forEach((row,i) => row.forEach((v,j) => { document.getElementById(`a_${i}_${j}`).value = v; }));
-  ex.b.forEach((v,i)   => { document.getElementById(`b_${i}`).value = v; });
-  ex.ct.forEach((v,i)  => { document.getElementById(`ct_${i}`).value = v; });
+  ex.b.forEach((v,i) => { document.getElementById(`b_${i}`).value = v; });
+  ex.ct.forEach((v,i) => { document.getElementById(`ct_${i}`).value = v; });
 }
 
-function clearAll() {
+function loadEx3(){
+  // Pick 3-constraint example based on current obj type
+  const ex = objType === "min" ? EXAMPLE3MIN : EXAMPLE3;
+  if(ex.type) setObj(ex.type);
+  document.getElementById("nVars").value = ex.n;
+  document.getElementById("mCons").value = ex.m;
+  buildInputs();
+  ex.c.forEach((v,j) => { document.getElementById(`c_${j}`).value = v; });
+  ex.A.forEach((row,i) => row.forEach((v,j) => { document.getElementById(`a_${i}_${j}`).value = v; }));
+  ex.b.forEach((v,i) => { document.getElementById(`b_${i}`).value = v; });
+  ex.ct.forEach((v,i) => { document.getElementById(`ct_${i}`).value = v; });
+}
+
+function clearAll(){
   buildInputs();
   document.getElementById("results").style.display = "none";
   document.getElementById("errBox").innerHTML = "";
 }
 
-// ── Solve ─────────────────────────────────────────────────────────────────
-async function solve() {
+// ── Solve ──────────────────────────────────────────────────────────────────────
+async function solve(){
   const n = +document.getElementById("nVars").value;
   const m = +document.getElementById("mCons").value;
   const errBox = document.getElementById("errBox");
   errBox.innerHTML = "";
 
-  const c = [], A = [], b = [], constraint_types = [];
+  const c=[], A=[], b=[], constraint_types=[];
 
-  // Read objective coefficients
-  for (let j = 0; j < n; j++) {
+  for(let j=0;j<n;j++){
     const v = parseFloat(document.getElementById(`c_${j}`).value);
-    if (isNaN(v)) {
-      errBox.innerHTML = `<div class="err-box">Fill all objective coefficients (c<sub>${j+1}</sub> is empty).</div>`;
-      return;
-    }
+    if(isNaN(v)){ errBox.innerHTML=`<div class="err-box">Fill all objective coefficients (c<sub>${j+1}</sub> is empty).</div>`; return; }
     c.push(v);
   }
 
-  // Read constraint matrix, signs, and RHS
-  for (let i = 0; i < m; i++) {
-    const row = [];
-    for (let j = 0; j < n; j++) {
+  for(let i=0;i<m;i++){
+    const row=[];
+    for(let j=0;j<n;j++){
       const v = parseFloat(document.getElementById(`a_${i}_${j}`).value);
-      if (isNaN(v)) {
-        errBox.innerHTML = `<div class="err-box">Fill all matrix cells (row ${i+1}, col ${j+1}).</div>`;
-        return;
-      }
+      if(isNaN(v)){ errBox.innerHTML=`<div class="err-box">Fill all matrix cells (row ${i+1}, col ${j+1}).</div>`; return; }
       row.push(v);
     }
     const bv = parseFloat(document.getElementById(`b_${i}`).value);
-    if (isNaN(bv)) {
-      errBox.innerHTML = `<div class="err-box">Fill all b values (b<sub>${i+1}</sub> is empty).</div>`;
-      return;
-    }
+    if(isNaN(bv)){ errBox.innerHTML=`<div class="err-box">Fill all b values (b<sub>${i+1}</sub> is empty).</div>`; return; }
     const ct = document.getElementById(`ct_${i}`).value;
-    A.push(row);
-    b.push(bv);
-    constraint_types.push(ct);
+    A.push(row); b.push(bv); constraint_types.push(ct);
   }
 
   const btn = document.getElementById("solveBtn");
   btn.innerHTML = `<span class="spin"></span>Solving…`;
   btn.disabled = true;
 
-  try {
-    const res = await fetch("/solve", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ c, A, b, obj_type: objType, constraint_types })
+  try{
+    const res = await fetch("/solve",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({c, A, b, obj_type:objType, constraint_types})
     });
     const d = await res.json();
-    if (d.error) {
+    if(d.error){
       errBox.innerHTML = `<div class="err-box">Error: ${d.error}<br><small style="opacity:.6">${d.trace||""}</small></div>`;
       return;
     }
     render(d, n, m);
-  } catch(e) {
+  }catch(e){
     errBox.innerHTML = `<div class="err-box">Network error: ${e.message}</div>`;
-  } finally {
+  }finally{
     btn.innerHTML = "Solve LP";
     btn.disabled = false;
   }
 }
 
-// ── Render results ────────────────────────────────────────────────────────
-function render(d, n, m) {
+// ── Render ─────────────────────────────────────────────────────────────────────
+function render(d, n, m){
   document.getElementById("results").style.display = "block";
-  setTimeout(() => document.getElementById("results").scrollIntoView({ behavior: "smooth" }), 100);
+  setTimeout(()=>document.getElementById("results").scrollIntoView({behavior:"smooth"}),100);
 
   const ot = d.obj_type;
-  document.getElementById("primalLabel").textContent = ot==="max" ? "Primal (MAX)" : "Primal (MIN)";
-  document.getElementById("dualLabel").textContent   = ot==="max" ? "Dual (MIN)"   : "Dual (MAX)";
+  const pv = d.primal, dv = d.dual, bm = d.big_m;
 
-  const pv = d.primal, dv = d.dual;
+  document.getElementById("primalLabel").textContent = ot==="max"?"Primal (MAX)":"Primal (MIN)";
+  document.getElementById("dualLabel").textContent   = ot==="max"?"Dual (MIN)":"Dual (MAX)";
+
+  // Primal / dual values
   document.getElementById("primalVal").textContent = pv.success ? pv.optimal_value : "Infeasible";
   document.getElementById("dualVal").textContent   = dv.success ? dv.optimal_value : "Infeasible";
-
-  document.getElementById("primalChips").innerHTML = pv.variables.map((v,i) =>
+  document.getElementById("primalChips").innerHTML = pv.variables.map((v,i)=>
     `<div class="chip">x<sub>${i+1}</sub> = <b>${v}</b></div>`).join("");
-  document.getElementById("dualChips").innerHTML = dv.variables.map((v,i) =>
+  document.getElementById("dualChips").innerHTML   = dv.variables.map((v,i)=>
     `<div class="chip">y<sub>${i+1}</sub> = <b>${v}</b></div>`).join("");
+
+  // Infeasible note
+  const infNote = document.getElementById("infeasibleNote");
+  infNote.style.display = pv.success ? "none" : "block";
+
+  // Big-M result
+  const bmDiv = document.getElementById("bigmResult");
+  if(!pv.success && bm){
+    bmDiv.style.display = "block";
+    if(bm.success){
+      document.getElementById("bigmVal").textContent = bm.obj !== null ? bm.obj.toFixed(4) : "—";
+      document.getElementById("bigmChips").innerHTML = (bm.x||[]).map((v,i)=>
+        `<div class="chip">x<sub>${i+1}</sub> = <b>${v.toFixed?v.toFixed(4):v}</b></div>`).join("");
+      document.getElementById("bigmStatus").textContent = "✓ Big-M found a feasible recovery solution (artificial vars → 0)";
+    } else {
+      document.getElementById("bigmVal").textContent = "No Solution";
+      document.getElementById("bigmChips").innerHTML = "";
+      document.getElementById("bigmStatus").textContent = "✗ Problem confirmed infeasible — artificial variables remain positive";
+    }
+  } else {
+    bmDiv.style.display = "none";
+  }
 
   // Duality banner
   const banner = document.getElementById("dBanner");
-  if (pv.success && dv.success) {
-    if (d.strong_duality) {
+  if(pv.success && dv.success){
+    if(d.strong_duality){
       banner.innerHTML = `<div class="d-banner ok"><span class="banner-icon">&#10003;</span>Strong Duality holds &mdash; Z* = W* = ${pv.optimal_value}</div>`;
     } else {
       banner.innerHTML = `<div class="d-banner ng"><span class="banner-icon">!</span>Duality gap detected &mdash; Z* = ${pv.optimal_value}, W* = ${dv.optimal_value}</div>`;
     }
+  } else if(!pv.success && bm && bm.success){
+    banner.innerHTML = `<div class="d-banner warn"><span class="banner-icon">&#9888;</span>Primal infeasible — Big-M recovery: Z ≈ ${bm.obj !== null ? bm.obj.toFixed(4) : "N/A"}</div>`;
   } else {
     banner.innerHTML = `<div class="d-banner ng"><span class="banner-icon">!</span>One or both problems infeasible / unbounded.</div>`;
   }
@@ -595,7 +632,14 @@ function render(d, n, m) {
   sw.innerHTML = "";
   d.steps.forEach((step, idx) => {
     const div = document.createElement("div");
-    div.className = "step" + (idx === 0 ? " open" : "");
+    const isBigM = step.title && step.title.toLowerCase().includes("big-m");
+    const isSens = step.title && (step.title.toLowerCase().includes("sensitivity") || step.title.toLowerCase().includes("pandas"));
+    const isSimplex = step.title && step.title.toLowerCase().includes("simplex");
+    div.className = "step" +
+      (idx===0?" open":"") +
+      (isBigM?" bigm-step":"") +
+      (isSens?" sens-step":"") +
+      (isSimplex?" simplex-step":"");
     div.innerHTML = `
       <div class="step-hd" onclick="toggleStep(this)">
         <span class="step-title">${step.title}</span>
@@ -606,38 +650,48 @@ function render(d, n, m) {
   });
 
   // CS table
-  const typeLabel = { le: "≤", ge: "≥", eq: "=" };
+  const typeLabel = {le:"≤",ge:"≥",eq:"="};
   const tbody = document.getElementById("csBody");
-  tbody.innerHTML = d.complementary_slackness.map(r => `
+  tbody.innerHTML = d.complementary_slackness.map(r=>`
     <tr>
       <td>Constraint ${r.constraint}</td>
-      <td style="color:var(--amber);font-weight:600">${typeLabel[r.type] || r.type}</td>
+      <td style="color:var(--amber);font-weight:600">${typeLabel[r.type]||r.type}</td>
       <td>${r.primal_slack}</td>
       <td>${r.dual_var}</td>
-      <td class="${r.satisfied ? "ok-cell" : "ng-cell"}">${r.satisfied ? "&#10003; Yes" : "&#10007; No"}</td>
+      <td class="${r.satisfied?"ok-cell":"ng-cell"}">${r.satisfied?"&#10003; Yes":"&#10007; No"}</td>
     </tr>`).join("");
 
-  // Graph
+  const csSection = document.getElementById("csSection");
+  csSection.style.display = d.complementary_slackness.length > 0 ? "block" : "none";
+
+  // Main graph (2-var, feasible)
   const gs = document.getElementById("graphSection");
-  if (d.graph && d.n_vars === 2) {
+  if(d.graph && d.n_vars===2){
     gs.style.display = "block";
-    document.getElementById("graphImg").src = "data:image/png;base64," + d.graph;
+    document.getElementById("graphImg").src = "data:image/png;base64,"+d.graph;
+    document.getElementById("graphNote").textContent =
+      `2-variable LP · ${m} constraint${m>1?"s":""} shown · Yellow star = optimal · Shaded = feasible region · Dashed = objective iso-line`;
   } else {
     gs.style.display = "none";
   }
+
+  // Big-M graph (2-var, infeasible primal)
+  const bgs = document.getElementById("bigmGraphSection");
+  if(d.big_m_graph && d.n_vars===2){
+    bgs.style.display = "block";
+    document.getElementById("bigmGraphImg").src = "data:image/png;base64,"+d.big_m_graph;
+  } else {
+    bgs.style.display = "none";
+  }
 }
 
-function toggleStep(hd) {
-  hd.parentElement.classList.toggle("open");
-}
+function toggleStep(hd){ hd.parentElement.classList.toggle("open"); }
 
-function printSolution() {
-  // Expand all steps so they print fully
-  document.querySelectorAll(".step").forEach(s => s.classList.add("open"));
+function printSolution(){
+  document.querySelectorAll(".step").forEach(s=>s.classList.add("open"));
   window.print();
 }
 
-// ── Init ──────────────────────────────────────────────────────────────────
 buildInputs();
 loadEx();
 </script>

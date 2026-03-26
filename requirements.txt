@@ -1,4 +1,5 @@
 flask
 scipy
 numpy
+pandas
 matplotlib
