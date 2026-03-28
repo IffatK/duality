@@ -99,7 +99,7 @@ Feasibility & duality checks
 
 Iffat Khan
 
-Team : Sneha Mahadik and Simran waghmare 
+Team : Sneha Mahadik and Simran Waghmare 
 
 
 Give it a ⭐ on GitHub — it actually helps.
