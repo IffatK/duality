@@ -10,8 +10,6 @@ Preview : https://duality-gql2.onrender.com/
 
 <img width="1920" height="1158" alt="image" src="https://github.com/user-attachments/assets/67c6887b-6b2f-4cf0-bd16-fcbfcdcc1358" />
 
-<img width="1920" height="5825" alt="image" src="https://github.com/user-attachments/assets/f15cdb09-11d6-4b32-8f53-40503d8d30f5" />
-
 
 
 This is not just a solver — it's a learning engine.
