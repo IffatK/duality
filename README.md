@@ -18,6 +18,13 @@ This shows you why the answer is correct.
 ✔ Duality verification
 ✔ Big-M recovery for infeasible cases
 
+🚀 Features
+⚙️ Core Capabilities
+Solve Max & Min LP problems
+Supports 2–5 variables and constraints
+Handles ≤, ≥, = constraints
+Automatic standard form conversion
+
 Mathematical Depth
 Primal Optimal Solution
 Dual Optimal Solution
