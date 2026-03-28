@@ -1,1 +1,79 @@
 # duality
+Mathematical Depth
+Primal Optimal Solution
+Dual Optimal Solution
+Strong Duality Theorem validation
+Complementary Slackness conditions
+
+🔬 Advanced Methods
+Big-M Method (infeasibility handling)
+Full Simplex Tableau (step-by-step)
+Sensitivity Analysis (Pandas-based simulation)
+
+📈 Visualization
+Feasible region plotting (2 variables)
+Optimal point highlighting
+Constraint boundary visualization
+
+🛠️ Tech Stack
+🔹 Backend
+Python (Flask)
+NumPy, SciPy, Pandas, Matplotlib
+🔹 Frontend
+HTML, CSS, JavaScript
+Custom dark-themed UI (no frameworks)
+📁 Project Structure
+.
+├── app.py              # Core LP solver + logic
+├── index.html          # Interactive UI
+├── requirements.txt    # Dependencies
+├── runtime.txt         # Python version
+
+⚙️ Setup Instructions
+1️⃣ Clone the repo
+git clone https://github.com/IffatK/duality.git
+cd duality
+2️⃣ Install dependencies
+pip install -r requirements.txt
+
+Dependencies:
+
+
+3️⃣ Run locally
+python app.py
+
+Open:
+
+http://127.0.0.1:5000/
+⚡ How It Works
+🧩 Input
+Objective function (c)
+Constraints (A, b)
+Constraint types
+⚙️ Processing
+Converts to standard LP form
+Solves using scipy.optimize.linprog
+Applies:
+Simplex (manual tableau)
+Big-M (if infeasible)
+Dual transformation
+📤 Output
+Optimal values (Primal + Dual)
+Step-by-step explanation
+Graph (if 2 variables)
+Feasibility & duality checks
+🎯 Use Cases
+📚 Students learning Linear Programming
+🧠 Understanding Duality & Simplex deeply
+🧪 Experimenting with constraints & sensitivity
+💼 Academic projects / viva demonstrations
+
+
+👩‍💻 Author
+
+Iffat Khan
+
+Team : Sneha Mahadik and Simran waghmare 
+
+
+Give it a ⭐ on GitHub — it actually helps.
